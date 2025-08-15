@@ -1,64 +1,118 @@
-##Project Structure 
-employee-management-jwt/
+# 📂 Project Structure
+
+```text
+employee-mangement-system
+├── HELP.md
+├── README.md
 ├── mvnw
 ├── mvnw.cmd
 ├── pom.xml
-├── README.md
 ├── src
 │   ├── main
 │   │   ├── java
 │   │   │   └── com
 │   │   │       └── task
-│   │   │           ├── EmployeeManagementApplication.java       # Main Spring Boot entry point
-│   │   │
-│   │   │           ├── controllers                              # REST Controllers
-│   │   │           │   ├── EmployeeController.java              # Employee CRUD endpoints
-│   │   │           │   ├── AuthenticationController.java        # User registration & login
-│   │   │           │   └── DemoController.java                   # Example secured endpoint
-│   │   │
-│   │   │           ├── entities                                 # JPA Entities
-│   │   │           │   ├── Employee.java                        # Employee data model
-│   │   │           │   ├── User.java                            # User entity for authentication
-│   │   │           │   ├── Role.java                            # Enum for user roles
-│   │   │           │   └── Token.java                           # Stores JWT tokens
-│   │   │
-│   │   │           ├── payloads                                 # DTOs
-│   │   │           │   └── EmployeeDTO.java                     # Data Transfer Object for Employee
-│   │   │
-│   │   │           ├── repositories                             # Spring Data JPA Repositories
-│   │   │           │   ├── EmployeeRepository.java              # Employee persistence
-│   │   │           │   ├── UserRepository.java                  # User persistence
-│   │   │           │   └── TokenRepository.java                 # Token persistence
-│   │   │
-│   │   │           ├── services                                 # Business Logic Layer
-│   │   │           │   ├── EmployeeService.java                 # Employee service interface
-│   │   │           │   ├── impl                                 # Service Implementations
-│   │   │           │   │   └── EmployeeServiceImpl.java
-│   │   │           │
-│   │   │           ├── springJwt                                # Authentication & Security
-│   │   │           │   ├── config                               # Security configuration
-│   │   │           │   │   ├── SecurityConfig.java
-│   │   │           │   │   └── CustomLogoutHandler.java
-│   │   │           │   ├── filter                               # JWT Token Filter
-│   │   │           │   │   └── JwtAuthenticationFilter.java
-│   │   │           │   ├── service                              # Auth services
-│   │   │           │   │   ├── AuthenticationService.java
-│   │   │           │   │   ├── JwtService.java
-│   │   │           │   │   └── UserDetailsServiceImp.java
-│   │   │           │
-│   │   │           ├── exceptions                               # Custom Exceptions
+│   │   │           ├── EmployeeMangementSystemApplication.java
+│   │   │           ├── controllers
+│   │   │           │   └── EmployeeController.java
+│   │   │           ├── entities
+│   │   │           │   └── Employee.java
+│   │   │           ├── exceptions
 │   │   │           │   └── ResourceNotFoundException.java
-│   │   │
-│   │   │           └── util                                     # Utilities (if needed)
-│   │   │
+│   │   │           ├── payloads
+│   │   │           │   └── EmployeeDTO.java
+│   │   │           ├── repositories
+│   │   │           │   └── EmployeeRepository.java
+│   │   │           └── services
+│   │   │               ├── EmployeeService.java
+│   │   │               └── impl
+│   │   │                   └── EmployeeServiceImpl.java
 │   │   └── resources
-│   │       ├── application.properties                           # MySQL, JWT, and app config
-│   │       └── application.yml                                  # Optional YAML config
-│   │
+│   │       └── application.properties
 │   └── test
 │       └── java
 │           └── com
 │               └── task
-│                   ├── EmployeeManagementApplicationTests.java
-│                   └── springJwt
-│                       └── SpringJwtApplicationTests.java
+│                   └── EmployeeMangementSystemApplicationTests.java
+└── target
+    ├── classes
+    │   ├── application.properties
+    │   └── com
+    │       └── task
+    │           ├── EmployeeMangementSystemApplication.class
+    │           ├── controllers
+    │           │   └── EmployeeController.class
+    │           ├── entities
+    │           │   └── Employee.class
+    │           ├── exceptions
+    │           │   └── ResourceNotFoundException.class
+    │           ├── payloads
+    │           │   └── EmployeeDTO.class
+    │           ├── repositories
+    │           │   └── EmployeeRepository.class
+    │           └── services
+    │               ├── EmployeeService.class
+    │               └── impl
+    │                   └── EmployeeServiceImpl.class
+    └── test-classes
+        └── com
+            └── task
+                └── EmployeeMangementSystemApplicationTests.class
+
+spring-jwt-user-management
+├── README.md
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── task
+│   │   │           ├── EmployeeMangementSystemApplication.java
+│   │   │           ├── controllers
+│   │   │           │   └── EmployeeController.java
+│   │   │           ├── entities
+│   │   │           │   └── Employee.java
+│   │   │           ├── exceptions
+│   │   │           │   └── ResourceNotFoundException.java
+│   │   │           ├── payloads
+│   │   │           │   └── EmployeeDTO.java
+│   │   │           ├── repositories
+│   │   │           │   └── EmployeeRepository.java
+│   │   │           ├── services
+│   │   │           │   ├── EmployeeService.java
+│   │   │           │   └── impl
+│   │   │           │       └── EmployeeServiceImpl.java
+│   │   │           └── springJwt
+│   │   │               ├── SpringJwtApplication.java
+│   │   │               ├── config
+│   │   │               │   ├── CustomLogoutHandler.java
+│   │   │               │   └── SecurityConfig.java
+│   │   │               ├── controller
+│   │   │               │   ├── AuthenticationController.java
+│   │   │               │   └── DemoController.java
+│   │   │               ├── filter
+│   │   │               │   └── JwtAuthenticationFilter.java
+│   │   │               ├── model
+│   │   │               │   ├── AuthenticationResponse.java
+│   │   │               │   ├── Role.java
+│   │   │               │   ├── Token.java
+│   │   │               │   └── User.java
+│   │   │               ├── repository
+│   │   │               │   ├── TokenRepository.java
+│   │   │               │   └── UserRepository.java
+│   │   │               └── service
+│   │   │                   ├── AuthenticationService.java
+│   │   │                   ├── JwtService.java
+│   │   │                   └── UserDetailsServiceImp.java
+│   └── resources
+│       ├── application.properties
+│       └── application.yml
+└── test
+    └── java
+        └── com
+            └── task
+                ├── EmployeeMangementSystemApplicationTests.java
+                └── springJwt
+                    └── SpringJwtApplicationTests.java
